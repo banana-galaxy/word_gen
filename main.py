@@ -13,30 +13,28 @@ else:
 
 word = ""
 cons = random.randint(0,1)
-i = 1
+i = 0
 
-while i <= length:
+while i < length:
     #print(i)
     if not cons:
         letter = random.choice(list("aeiou"))
         word += letter
         cons = 1
+        i += 1
     else:
-        count = random.randint(1, 2)
-        for x in range(count):
-            if i <= length:
-                #print(x)
-                vowel = True
-                while vowel:
-                    letter = random.choice(list(string.ascii_lowercase))
-                    if not letter in list("aeiou"):
-                        vowel = False
-                word += letter
-                i += 1
-            else:
-                break
+        count = 0
+        amount = random.randint(1, 2)
+        while count < amount and i < length:
+            #print(x)
+            vowel = True
+            while vowel:
+                letter = random.choice(list(string.ascii_lowercase))
+                if not letter in list("aeiou"):
+                    vowel = False
+            word += letter
+            i += 1
+            count += 1
         cons = 0
-
-    i += 1
 
 print(word)
